@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+        <title>MeteoBot - погодная метеостанция</title>
+    </head>
+    <body>
+        <header class="px-3 py-2">
+            <h4 class="text-primary user-select-none d-inline-block m-0 align-baseline">
+                MeteoBot - погодная метеостанция
+            </h4>
+        </header>
+        <main class="p-4 m-auto" style="width: 650px; max-width: 100%;">
+            <div class="text-center mx-auto px-4" style="width: 400px; max-width:100%">
+                <label for="weather-period">Период</label>
+                <select class="form-select form-select-sm" id="weather-period">
+                    <option>В данный момент</option>
+                    <option>За час</option>
+                    <option>За сутки</option>
+                    <option>За месяц</option>
+                    <option>За год</option>
+                </select>
+
+                <div class="text-start m-auto mt-4 d-inline-block position-relative fs-4" id="weather-container" style="transition:0.3s">
+                    <div class="position-absolute top-50 start-50 translate-middle" id="spinner">
+                        <div class="spinner-border"></div>
+                    </div>
+                    
+                    <div id="weather-text" style="max-width: 250px;">
+                        <span id="geo-location" class="d-block text-center fs-6">Погода в</span>
+                        <i class="bi bi-thermometer me-2"></i><span id="temperature-text">°C</span><br>
+                        <i class="bi bi-droplet-half me-2"></i><span id="humidity-text">%</span><br>
+                        <i class="bi bi-speedometer me-2"></i><span id="pressure-text">гПа</span><br>
+                        <i class="bi bi-cloud me-2"></i><span id="forecast-text" class="fs-6">П</span>
+                    </div>
+                </div>
+            </div>
+                
+            <canvas id="chart-canvas" width="0" height="0"></canvas>
+
+            <div class="text-center mt-4 mx-auto px-4 fs-6" style="width: 400px; max-width: 100%">
+                <i class="bi bi-telegram"></i> <a id="telegram-link">@</a>
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
